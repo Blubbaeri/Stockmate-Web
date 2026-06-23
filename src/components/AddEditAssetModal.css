@@ -1,0 +1,264 @@
+/* ── AddEditAssetModal ─ Self-contained styles ─────────────── */
+
+.asset-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  padding: 24px 16px;
+  animation: assetModalFadeIn 0.2s ease-out;
+}
+
+.asset-modal-card {
+  background: var(--surface, #fff);
+  width: 100%;
+  max-width: 480px;
+  max-height: 85vh;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--border, #e5e5ea);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  animation: assetModalSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+
+.asset-modal-header {
+  padding: 24px 24px 0 24px;
+  flex-shrink: 0;
+}
+
+.asset-modal-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary, #1c1c1e);
+  letter-spacing: -0.3px;
+  margin: 0;
+}
+
+.asset-modal-subtitle {
+  font-size: 13px;
+  color: var(--text-secondary, #6c6c70);
+  margin-top: 4px;
+}
+
+.asset-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--background, #f2f2f7);
+  border: none;
+  color: var(--text-secondary, #6c6c70);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  z-index: 2;
+}
+
+.asset-modal-close:hover {
+  background: var(--border, #e5e5ea);
+  color: var(--text-primary, #1c1c1e);
+}
+
+/* ── Error Alert ────────────────────────────────────────────── */
+
+.asset-modal-error {
+  margin: 12px 24px 0 24px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #fef2f2;
+  color: #dc2626;
+  font-size: 13px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+/* ── Form ───────────────────────────────────────────────────── */
+
+.asset-modal-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  padding-top: 20px;
+}
+
+.asset-modal-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0 24px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.asset-modal-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.asset-modal-scroll::-webkit-scrollbar-thumb {
+  background: var(--border, #e5e5ea);
+  border-radius: 4px;
+}
+
+/* ── Form Fields ────────────────────────────────────────────── */
+
+.asset-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.asset-field-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary, #6c6c70);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.asset-field-input {
+  width: 100%;
+  height: 44px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border, #e5e5ea);
+  background: var(--surface-secondary, #f9f9fb);
+  font-size: 14px;
+  color: var(--text-primary, #1c1c1e);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.asset-field-input:focus {
+  border-color: var(--accent, #007aff);
+  background: var(--surface, #fff);
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+.asset-field-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.asset-field-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  height: 80px;
+  border-radius: 12px;
+  border: 1px solid var(--border, #e5e5ea);
+  background: var(--surface-secondary, #f9f9fb);
+  font-size: 14px;
+  color: var(--text-primary, #1c1c1e);
+  font-family: inherit;
+  resize: vertical;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.asset-field-textarea:focus {
+  border-color: var(--accent, #007aff);
+  background: var(--surface, #fff);
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+.asset-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ── Submit Button ──────────────────────────────────────────── */
+
+.asset-modal-footer {
+  flex-shrink: 0;
+  padding: 16px 24px 24px 24px;
+}
+
+.asset-modal-submit {
+  width: 100%;
+  height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent, #007aff), #0055d4);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.25);
+  transition: all 0.2s ease;
+}
+
+.asset-modal-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 122, 255, 0.35);
+}
+
+.asset-modal-submit:active {
+  transform: translateY(1px);
+}
+
+.asset-modal-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ── Animations ─────────────────────────────────────────────── */
+
+@keyframes assetModalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes assetModalSlideUp {
+  0% { opacity: 0; transform: translateY(20px) scale(0.97); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+
+@media (max-width: 520px) {
+  .asset-modal-card {
+    max-height: 92vh;
+    border-radius: 16px;
+  }
+
+  .asset-field-row {
+    grid-template-columns: 1fr;
+  }
+
+  .asset-modal-header {
+    padding: 20px 20px 0 20px;
+  }
+
+  .asset-modal-scroll {
+    padding: 0 20px;
+  }
+
+  .asset-modal-footer {
+    padding: 12px 20px 20px 20px;
+  }
+}
