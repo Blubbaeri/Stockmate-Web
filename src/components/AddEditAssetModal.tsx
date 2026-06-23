@@ -103,6 +103,14 @@ export default function AddEditAssetModal({
     setOffset({ x: 0, y: 0 });
   }, [item]);
 
+  useEffect(() => {
+    // Lock background page scroll when modal is open
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
+
   const handleChange = (field: string, value: any) => {
     setForm((prev) => ({ ...prev, [field]: value }));
   };
