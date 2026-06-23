@@ -443,20 +443,46 @@ export default function Inventory() {
                   {/* Info */}
                   <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                     <div>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                        <h4 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '85%' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8 }}>
+                        <h4 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                           {item.name}
                         </h4>
-                        <div style={{ display: 'flex', gap: 2 }} onClick={e => e.stopPropagation()}>
+                        <div style={{ display: 'flex', gap: 6, flexShrink: 0 }} onClick={e => e.stopPropagation()}>
                           <button 
-                            style={{ border: 'none', background: 'none', padding: 4, cursor: 'pointer', color: 'var(--text-tertiary)' }}
+                            style={{ 
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              width: '26px',
+                              height: '26px',
+                              borderRadius: '50%',
+                              background: 'var(--background)',
+                              border: '1px solid var(--border)',
+                              cursor: 'pointer',
+                              color: 'var(--text-secondary)',
+                              transition: 'all 0.15s ease'
+                            }}
                             onClick={() => { setEditingItem(item); setShowAddModal(true); }}
+                            aria-label="Edit barang"
                           >
                             <Edit3 size={12} />
                           </button>
                           <button 
-                            style={{ border: 'none', background: 'none', padding: 4, cursor: 'pointer', color: 'var(--out-of-stock)' }}
+                            style={{ 
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              width: '26px',
+                              height: '26px',
+                              borderRadius: '50%',
+                              background: 'var(--out-of-stock-bg)',
+                              border: '1px solid var(--border)',
+                              cursor: 'pointer',
+                              color: 'var(--out-of-stock)',
+                              transition: 'all 0.15s ease'
+                            }}
                             onClick={() => handleDelete(item.id)}
+                            aria-label="Hapus barang"
                           >
                             <Trash2 size={12} />
                           </button>
