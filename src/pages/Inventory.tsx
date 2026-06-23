@@ -286,35 +286,45 @@ export default function Inventory() {
       {/* Summary Cards */}
       <div className="summary-cards-row">
         <div className="summary-card animate-spring">
-          <div className="summary-icon-wrap" style={{ backgroundColor: 'var(--accent-light)' }}>
-            <Package size={18} color="var(--accent)" />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+            <div className="summary-icon-wrap" style={{ backgroundColor: 'var(--accent-light)', marginBottom: 0 }}>
+              <Package size={18} color="var(--accent)" />
+            </div>
+            <div className="summary-value" style={{ color: 'var(--accent)' }}>{stats.total}</div>
           </div>
-          <div className="summary-value" style={{ color: 'var(--accent)' }}>{stats.total}</div>
           <div className="summary-label">Total Barang</div>
         </div>
 
         <div className="summary-card animate-spring">
-          <div className="summary-icon-wrap" style={{ backgroundColor: '#f5f3ff' }}>
-            <Sparkles size={18} color="#8b5cf6" />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+            <div className="summary-icon-wrap" style={{ backgroundColor: '#f5f3ff', marginBottom: 0 }}>
+              <Sparkles size={18} color="#8b5cf6" />
+            </div>
+            <div className="summary-value" style={{ color: '#8b5cf6' }}>{stats.totalCategories}</div>
           </div>
-          <div className="summary-value" style={{ color: '#8b5cf6' }}>{stats.totalCategories}</div>
           <div className="summary-label">Total Kategori</div>
         </div>
 
         <div className="summary-card animate-spring">
-          <div className="summary-icon-wrap" style={{ backgroundColor: 'var(--in-stock-bg)' }}>
-            <span style={{ fontWeight: 800, color: 'var(--in-stock)' }}>Rp</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8, width: '100%', minWidth: 0 }}>
+            <div className="summary-icon-wrap" style={{ backgroundColor: 'var(--in-stock-bg)', marginBottom: 0, flexShrink: 0 }}>
+              <span style={{ fontWeight: 800, color: 'var(--in-stock)', fontSize: 13 }}>Rp</span>
+            </div>
+            <div className="summary-value" style={{ color: 'var(--in-stock)', fontSize: 16, textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', flex: 1, minWidth: 0 }}>
+              {formatCurrency(stats.totalValue)}
+            </div>
           </div>
-          <div className="summary-value" style={{ color: 'var(--in-stock)', fontSize: 16 }}>{formatCurrency(stats.totalValue)}</div>
           <div className="summary-label">Total Nilai Aset</div>
         </div>
 
         <div className="summary-card animate-spring">
-          <div className="summary-icon-wrap" style={{ backgroundColor: '#fff7ed' }}>
-            <Calendar size={18} color="#f97316" />
-          </div>
-          <div className="summary-value" style={{ color: '#f97316', fontSize: 13, textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', maxWidth: '100%', padding: '0 8px' }}>
-            {stats.latestAsset}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8, width: '100%', minWidth: 0 }}>
+            <div className="summary-icon-wrap" style={{ backgroundColor: '#fff7ed', marginBottom: 0, flexShrink: 0 }}>
+              <Calendar size={18} color="#f97316" />
+            </div>
+            <div className="summary-value" style={{ color: '#f97316', fontSize: 13, textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', flex: 1, minWidth: 0 }}>
+              {stats.latestAsset}
+            </div>
           </div>
           <div className="summary-label">Barang Terbaru</div>
         </div>
@@ -326,6 +336,15 @@ export default function Inventory() {
           <CategoryFilter categories={categoryChips} selected={activeCategory} onSelect={setActiveCategory} />
         </div>
         <div style={{ display: 'flex', gap: 8, marginLeft: 12, flexShrink: 0, position: 'relative', alignItems: 'center' }}>
+          <button
+            className="btn-primary"
+            style={{ width: 'auto', marginTop: 0, padding: '8px 16px', height: 38, whiteSpace: 'nowrap' }}
+            onClick={() => { setEditingItem(null); setShowAddModal(true); }}
+          >
+            <Plus size={16} />
+            <span>Tambah Barang</span>
+          </button>
+
           {/* Dropdown Gear Trigger */}
           <button
             className="btn-primary"
@@ -369,15 +388,6 @@ export default function Inventory() {
               </button>
             </div>
           )}
-
-          <button
-            className="btn-primary"
-            style={{ width: 'auto', marginTop: 0, padding: '8px 16px', height: 38, whiteSpace: 'nowrap' }}
-            onClick={() => { setEditingItem(null); setShowAddModal(true); }}
-          >
-            <Plus size={16} />
-            <span>Tambah Barang</span>
-          </button>
         </div>
       </div>
 
