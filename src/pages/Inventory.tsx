@@ -322,7 +322,7 @@ export default function Inventory() {
 
       {/* Filter / Actions row */}
       <div className="filter-actions-row">
-        <div style={{ flex: 1, overflow: 'hidden' }}>
+        <div style={{ flex: 1, width: '100%', maxWidth: '100%', overflow: 'hidden' }}>
           <CategoryFilter categories={categoryChips} selected={activeCategory} onSelect={setActiveCategory} />
         </div>
         <div style={{ display: 'flex', gap: 8, marginLeft: 12, flexShrink: 0, position: 'relative', alignItems: 'center' }}>
@@ -444,7 +444,7 @@ export default function Inventory() {
                   <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                     <div>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8 }}>
-                        <h4 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        <h4 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: 'var(--text-primary)', wordBreak: 'break-word', lineHeight: '1.3' }}>
                           {item.name}
                         </h4>
                         <div style={{ display: 'flex', gap: 6, flexShrink: 0 }} onClick={e => e.stopPropagation()}>
