@@ -368,8 +368,9 @@ export default function AddEditAssetModal({
                 <div style={{ marginTop: 12, display: 'flex', flexDirection: 'column', gap: 10, alignItems: 'center' }}>
                   <div
                     style={{
-                      width: 420,
-                      height: 350,
+                      width: '100%',
+                      maxWidth: '320px',
+                      height: '266px',
                       borderRadius: 12,
                       overflow: 'hidden',
                       position: 'relative',

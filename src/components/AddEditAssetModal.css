@@ -242,23 +242,56 @@
 
 @media (max-width: 520px) {
   .asset-modal-card {
-    max-height: 92vh;
+    max-height: 94vh;
     border-radius: 16px;
   }
 
   .asset-field-row {
     grid-template-columns: 1fr;
+    gap: 0px;
   }
 
   .asset-modal-header {
-    padding: 20px 20px 0 20px;
+    padding: 16px 16px 0 16px;
+  }
+
+  .asset-modal-title {
+    font-size: 17px;
+  }
+
+  .asset-modal-subtitle {
+    font-size: 11px;
+    margin-top: 2px;
   }
 
   .asset-modal-scroll {
-    padding: 0 20px;
+    padding: 0 16px;
+  }
+
+  .asset-field {
+    margin-bottom: 10px;
+    gap: 4px;
+  }
+
+  .asset-field-input {
+    height: 38px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+
+  .asset-field-textarea {
+    height: 60px;
+    font-size: 13px;
+    border-radius: 8px;
   }
 
   .asset-modal-footer {
-    padding: 12px 20px 20px 20px;
+    padding: 10px 16px 16px 16px;
+  }
+
+  .asset-modal-submit {
+    height: 40px;
+    font-size: 13px;
+    border-radius: 8px;
   }
 }
